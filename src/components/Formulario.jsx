@@ -1,35 +1,43 @@
-import { useState } from 'react';
+import { useForm, ValidationError } from '@formspree/react';
+import { CheckCircle } from 'lucide-react';
+
+const FORM_ID = import.meta.env.VITE_FORM_ID;
 
 function Formulario() {
-  const [formData, setFormData] = useState({
-    nomeCompleto: '',
-    email: '',
-    nomeParoquia: '',
-    whatsapp: ''
-  });
+  const [state, handleSubmit] = useForm(FORM_ID);
+  
+  // 3. NÃO precisamos mais do useState (formData) nem do handleChange
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Lógica de envio para seu backend, Netlify, etc.
-    console.log('Dados do formulário:', formData);
-    alert('Inscrição enviada com sucesso! Entraremos em contato em breve.');
-    // Limpar formulário
-    setFormData({ nomeCompleto: '', email: '', nomeParoquia: '', whatsapp: '' });
-  };
-
-  // Estilo de input reutilizado do seu FaleConosco.jsx
+  // Estilo de input (mantido)
   const inputStyle = "block w-full rounded-md bg-white px-3 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-darkgolden sm:text-sm/6";
+  
+  // Estilo para os erros de validação
+  const errorStyle = "text-red-600 text-sm mt-1";
+
+  // 4. Se o formulário foi enviado com sucesso, mostre uma bela mensagem
+  if (state.succeeded) {
+    return (
+      <div id="inscrever" className="py-20 bg-landingpagebg">
+        <div className="container mx-auto px-6 lg:px-8 max-w-2xl">
+          <div className="bg-lightgray p-8 rounded-2xl shadow-lg border border-neutral-200 text-center">
+            <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold text-neutral-900 mb-2">
+              Inscrição recebida!
+            </h2>
+            <p className="text-lg text-neutral-600">
+              Obrigado por se registrar! Entraremos em contato em breve para agendar sua apresentação.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div id="inscrever" className="py-20 bg-white">
+    <div id="inscrever" className="py-20 bg-landingpagebg">
       <div className="container mx-auto px-6 lg:px-8 max-w-2xl">
         
-        {/* Título e Subtítulo do Bloco 5 */}
+        {/* Título e Subtítulo */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide text-neutral-900">
             Inscreva-se agora no <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">Piloto Gratuito</span>
@@ -41,6 +49,8 @@ function Formulario() {
 
         {/* Formulário */}
         <div className="bg-lightgray p-8 rounded-2xl shadow-lg border border-neutral-200">
+          
+          {/* 6. O onSubmit={handleSubmit} agora é o do Formspree */}
           <form onSubmit={handleSubmit}>
             <div className="space-y-6">
               
@@ -52,15 +62,21 @@ function Formulario() {
                 <div className="mt-2">
                   <input
                     id="nomeCompleto"
-                    name="nomeCompleto"
+                    name="nomeCompleto" // O 'name' é o que o Formspree usa
                     type="text"
                     autoComplete="name"
                     required
                     className={inputStyle}
-                    value={formData.nomeCompleto}
-                    onChange={handleChange}
+                    // 7. Removido 'value' e 'onChange'
                   />
                 </div>
+                {/* 8. Corrigido 'field' para 'nomeCompleto' e adicionado 'className' */}
+                <ValidationError 
+                  field="nomeCompleto" 
+                  prefix="Nome Completo" 
+                  errors={state.errors} 
+                  className={errorStyle} 
+                />
               </div>
 
               {/* E-mail */}
@@ -71,15 +87,20 @@ function Formulario() {
                 <div className="mt-2">
                   <input
                     id="email"
-                    name="email"
+                    name="email" // O 'name' é o que o Formspree usa
                     type="email"
                     autoComplete="email"
                     required
                     className={inputStyle}
-                    value={formData.email}
-                    onChange={handleChange}
+                    // Removido 'value' e 'onChange'
                   />
                 </div>
+                <ValidationError 
+                  field="email" 
+                  prefix="Email" 
+                  errors={state.errors} 
+                  className={errorStyle} 
+                />
               </div>
 
               {/* Nome da Paróquia */}
@@ -90,14 +111,19 @@ function Formulario() {
                 <div className="mt-2">
                   <input
                     id="nomeParoquia"
-                    name="nomeParoquia"
+                    name="nomeParoquia" // O 'name' é o que o Formspree usa
                     type="text"
                     required
                     className={inputStyle}
-                    value={formData.nomeParoquia}
-                    onChange={handleChange}
+                    // Removido 'value' e 'onChange'
                   />
                 </div>
+                <ValidationError 
+                  field="nomeParoquia" 
+                  prefix="Nome da Paróquia" 
+                  errors={state.errors} 
+                  className={errorStyle} 
+                />
               </div>
 
               {/* WhatsApp (Opcional) */}
@@ -108,15 +134,15 @@ function Formulario() {
                 <div className="mt-2">
                   <input
                     id="whatsapp"
-                    name="whatsapp"
+                    name="whatsapp" // O 'name' é o que o Formspree usa
                     type="tel"
                     autoComplete="tel"
                     placeholder="(XX) XXXXX-XXXX"
                     className={inputStyle}
-                    value={formData.whatsapp}
-                    onChange={handleChange}
+                    // Removido 'value' e 'onChange'
                   />
                 </div>
+                {/* Campo opcional, não precisa de validação */}
               </div>
 
             </div>
@@ -125,9 +151,13 @@ function Formulario() {
             <div className="mt-8 flex flex-col items-center">
               <button
                 type="submit"
-                className="w-full rounded-md bg-gradient-to-r from-lightgolden to-darkgolden px-8 py-3 text-lg font-semibold text-white shadow-lg hover:opacity-90 transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-darkgolden focus:ring-offset-2"
+                // 9. Desabilita o botão enquanto está enviando
+                disabled={state.submitting}
+                className="w-full rounded-md bg-gradient-to-r from-lightgolden to-darkgolden px-8 py-3 text-lg font-semibold text-white shadow-lg transition-opacity cursor-pointer focus:outline-none focus:ring-2 focus:ring-darkgolden focus:ring-offset-2
+                           disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Garantir minha vaga no piloto!
+                {/* 10. Muda o texto do botão durante o envio */}
+                {state.submitting ? 'Enviando...' : 'Garantir minha vaga no piloto!'}
               </button>
 
               {/* Bloco 6: Microcopy de Confiança */}
