@@ -8,7 +8,7 @@ function Hero() {
         {/* Coluna de Texto (Bloco 1: Título e Subtítulo) */}
         <div className="text-center lg:text-left">
           <h1 className="text-3xl font-bold sm:text-5xl lg:text-6xl tracking-tight text-neutral-900">
-            Cansado de gerir o dízimo e a agenda da paróquia em <span className="text-darkgolden">planilhas</span>?
+            Cansado de gerir o dízimo e a agenda da paróquia em <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">planilhas</span>?
           </h1>
           
           <p className="mt-6 text-lg max-w-2xl text-neutral-600">
