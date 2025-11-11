@@ -1,3 +1,5 @@
+import FeedImg from "../assets/landing-page/feed.png";
+
 function Hero() {
   return (
     <div className="bg-white">
@@ -26,7 +28,7 @@ function Hero() {
 
         {/* Bloco 1: Visual (Prova) */}
         <div className="flex justify-center">
-          <img src="src/assets/landing-page/feed.png" alt="Dashboard do Sistema Anima" className="rounded-lg shadow-xl ring-1 ring-black/5" />
+          <img src={FeedImg} alt="Dashboard do Sistema Anima" className="rounded-lg shadow-xl ring-1 ring-black/5" />
         </div>
 
       </div>

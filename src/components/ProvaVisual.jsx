@@ -1,3 +1,7 @@
+import LiturgiaImg from "../assets/landing-page/liturgia.png";
+import PastoraisImg from "../assets/landing-page/pastorais.png";
+import ContatoHorariosImg from "../assets/landing-page/contato-horarios.png";
+
 function ProvaVisual() {
   return (
     <div id="prova-visual" className="py-20 bg-white">
@@ -10,13 +14,13 @@ function ProvaVisual() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Screenshot 1 - Financeiro */}
-          <img src="src/assets/landing-page/liturgia.png" alt="Tela de Gestão Financeira" className="rounded-lg shadow-lg" />
+          <img src={LiturgiaImg} alt="Tela de Gestão Financeira" className="rounded-lg shadow-lg" />
           
           {/* Screenshot 2 - Membros */}
-          <img src="src/assets/landing-page/pastorais.png" alt="Tela de Gestão de Membros" className="rounded-lg shadow-lg" />
+          <img src={PastoraisImg} alt="Tela de Gestão de Membros" className="rounded-lg shadow-lg" />
           
           {/* Screenshot 3 - Agenda */}
-          <img src="src/assets/landing-page/contato-horarios.png" alt="Tela da Agenda Paroquial" className="rounded-lg shadow-lg" />
+          <img src={ContatoHorariosImg} alt="Tela da Agenda Paroquial" className="rounded-lg shadow-lg" />
         </div>
       </div>
     </div>
