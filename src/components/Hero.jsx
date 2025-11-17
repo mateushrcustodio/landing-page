@@ -1,5 +1,3 @@
-// src/components/piloto/Bloco1_Hero.jsx
-
 import FeedImg from "../assets/landing-page/feed.png";
 
 function Hero() {
@@ -12,11 +10,11 @@ function Hero() {
         {/* 2. O texto ocupa 5 colunas em telas grandes */}
         <div className="lg:col-span-5 text-center lg:text-left">
           <h1 className="text-3xl font-bold sm:text-5xl lg:text-6xl tracking-tight text-neutral-900">
-            Cansado de gerir o dízimo e a agenda da paróquia em <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">planilhas</span>?
+            Cansado de organizar pastorais por <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">planilhas</span> e avisos em <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">WhatsApp</span>?
           </h1>
           
           <p className="mt-6 text-lg max-w-2xl text-neutral-600">
-            O Anima centraliza a gestão de fiéis, finanças e eventos. Simples, seguro e pensado para a sua paróquia.
+            O Anima centraliza a colaboração das suas pastorais e cria um portal de informações para engajar os fiéis. A ponte digital da sua comunidade.
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center lg:justify-start mt-10 gap-4">
@@ -24,7 +22,7 @@ function Hero() {
               href="#inscrever" 
               className="bg-gradient-to-r from-lightgolden to-darkgolden py-3 px-8 text-base font-semibold text-white rounded-md shadow-lg hover:opacity-90 transition-opacity"
             >
-              Quero participar do piloto gratuito
+              Quero demonstrar interesse
             </a>
           </div>
         </div>

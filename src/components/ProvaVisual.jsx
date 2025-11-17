@@ -18,7 +18,7 @@ const featuresData = [
     id: 'pastorais', // Começar com o mais "central"
     src: PastoraisImg,
     alt: "Tela de Gestão de Pastorais no sistema Anima",
-    title: "Gestão Completa de Pastorais",
+    title: "Gestão completa de pastorais",
     description: "Organize grupos, membros, atividades e escalas de todas as suas pastorais.",
     Icon: Users
   },
@@ -26,7 +26,7 @@ const featuresData = [
     id: 'liturgia',
     src: LiturgiaImg,
     alt: "Tela da Liturgia Diária no sistema Anima",
-    title: "Liturgia Diária Automatizada",
+    title: "Liturgia Diária automatizada",
     description: "Prepare suas celebrações com leituras e ritos do dia, sempre atualizados.",
     Icon: BookOpen
   },
@@ -34,7 +34,7 @@ const featuresData = [
     id: 'horarios-missas',
     src: HorariosMissasImg,
     alt: "Tela de Horários de Missas da paróquia no sistema Anima",
-    title: "Agenda de Missas e Eventos",
+    title: "Agenda de missas e eventos",
     description: "Publique e gerencie todos os horários de missas, batismos e eventos.",
     Icon: CalendarDays
   },
@@ -42,7 +42,7 @@ const featuresData = [
     id: 'contato-horarios',
     src: ContatoHorariosImg,
     alt: "Tela de Contato e Horários da paróquia no sistema Anima",
-    title: "Página de Contato",
+    title: "Página de contato",
     description: "Mantenha fiéis informados com acesso fácil aos contatos e horários.",
     Icon: MapPin
   },
@@ -50,7 +50,7 @@ const featuresData = [
     id: 'usuarios',
     src: UsuariosImg,
     alt: "Tela de Gestão de Usuários e Fiéis no sistema Anima",
-    title: "Gestão de Fiéis e Usuários",
+    title: "Gestão de fiéis e usuários",
     description: "Cadastre, atualize e gerencie o perfil de todos os fiéis e agentes de pastoral.",
     Icon: User
   },
@@ -58,7 +58,7 @@ const featuresData = [
     id: 'agenda',
     src: AgendaImg,
     alt: "Tela da Agenda Paroquial Integrada no sistema Anima",
-    title: "Agenda Paroquial Integrada",
+    title: "Agenda paroquial integrada",
     description: "Gerencie missas, reuniões e eventos em um calendário único e acessível.",
     Icon: Calendar
   },
@@ -66,7 +66,7 @@ const featuresData = [
     id: 'escalas',
     src: EscalasImg,
     alt: "Tela de Criação de Escalas de Serviço no sistema Anima",
-    title: "Criação de Escalas de Serviço",
+    title: "Criação de escalas de missas",
     description: "Otimize a organização das pastorais criando e publicando as escalas.",
     Icon: ClipboardList
   },
@@ -74,8 +74,8 @@ const featuresData = [
     id: 'historico',
     src: HistoricoImg,
     alt: "Tela de Histórico e Relatórios no sistema Anima",
-    title: "Histórico e Relatórios",
-    description: "Acompanhe o histórico de atividades e gere relatórios para a gestão paroquial.",
+    title: "Históricos da paróquia e dos padres",
+    description: "Conheça mais a paróquia e todos os padres que atuaram nela.",
     Icon: History
   }
 ];
@@ -88,7 +88,7 @@ function FeatureButton({ feature, isActive, onClick }) {
       onClick={onClick}
       className={`
         flex items-start text-left p-4 lg:p-5 rounded-xl border
-        transition-all duration-300 ease-in-out w-full
+        transition-all duration-300 ease-in-out w-full cursor-pointer
         ${isActive
           ? 'bg-white shadow-lg border-darkgolden ring-2 ring-darkgolden/20 scale-105' // Estilo ATIVO
           : 'bg-white/70 border-neutral-200 shadow-sm hover:shadow-md hover:bg-white' // Estilo INATIVO
@@ -129,10 +129,10 @@ function ProvaVisual() {
         {/* Título */}
         <div className="text-center mb-16 lg:mb-20">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide text-neutral-900">
-            Veja o <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">Anima</span> em Ação
+            Veja o <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">Anima</span> em ação
           </h2>
           <p className="mt-4 text-lg text-neutral-600 max-w-2xl mx-auto">
-            Descubra como cada ferramenta foi pensada para simplificar a gestão da sua paróquia.
+            Descubra como cada ferramenta foi pensada para simplificar a gestão das informações e da colaboração da sua paróquia.
           </p>
         </div>
         

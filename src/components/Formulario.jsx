@@ -22,10 +22,10 @@ function Formulario() {
           <div className="bg-lightgray p-8 rounded-2xl shadow-lg border border-neutral-200 text-center">
             <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-neutral-900 mb-2">
-              Inscrição recebida!
+              Interesse registrado!
             </h2>
             <p className="text-lg text-neutral-600">
-              Obrigado por se registrar! Entraremos em contato em breve para agendar sua apresentação.
+              Obrigado por se inscrever. Você será o primeiro a saber quando o Anima for lançado!
             </p>
           </div>
         </div>
@@ -40,10 +40,11 @@ function Formulario() {
         {/* Título e Subtítulo */}
         <div className="text-center mb-10">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-wide text-neutral-900">
-            Inscreva-se agora no <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">Piloto Gratuito</span>
+            Tem interesse em melhorar a <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">colaboração</span> interna
+            <br /> da sua <span className="bg-gradient-to-r from-lightgolden to-darkgolden text-transparent bg-clip-text">paróquia</span>?
           </h2>
           <p className="mt-4 text-lg text-neutral-600">
-            Vagas limitadas. Seja um dos primeiros a modernizar sua gestão.
+            Seja um dos primeiros a se integrar totalmente com seus fiéis.
           </p>
         </div>
 
@@ -53,11 +54,34 @@ function Formulario() {
           {/* 6. O onSubmit={handleSubmit} agora é o do Formspree */}
           <form onSubmit={handleSubmit}>
             <div className="space-y-6">
+
+              {/* Nome da Paróquia */}
+              <div>
+                <label htmlFor="nomeParoquia" className="block text-sm/6 font-medium text-gray-900">
+                  Nome da paróquia <span className="text-red-500">*</span>
+                </label>
+                <div className="mt-2">
+                  <input
+                    id="nomeParoquia"
+                    name="nomeParoquia" // O 'name' é o que o Formspree usa
+                    type="text"
+                    required
+                    className={inputStyle}
+                    // Removido 'value' e 'onChange'
+                  />
+                </div>
+                <ValidationError 
+                  field="nomeParoquia" 
+                  prefix="Nome da Paróquia" 
+                  errors={state.errors} 
+                  className={errorStyle} 
+                />
+              </div>
               
               {/* Nome Completo */}
               <div>
                 <label htmlFor="nomeCompleto" className="block text-sm/6 font-medium text-gray-900">
-                  Nome Completo <span className="text-red-500">*</span>
+                  Nome completo <span className="text-red-500">*</span>
                 </label>
                 <div className="mt-2">
                   <input
@@ -103,33 +127,10 @@ function Formulario() {
                 />
               </div>
 
-              {/* Nome da Paróquia */}
-              <div>
-                <label htmlFor="nomeParoquia" className="block text-sm/6 font-medium text-gray-900">
-                  Nome da Paróquia <span className="text-red-500">*</span>
-                </label>
-                <div className="mt-2">
-                  <input
-                    id="nomeParoquia"
-                    name="nomeParoquia" // O 'name' é o que o Formspree usa
-                    type="text"
-                    required
-                    className={inputStyle}
-                    // Removido 'value' e 'onChange'
-                  />
-                </div>
-                <ValidationError 
-                  field="nomeParoquia" 
-                  prefix="Nome da Paróquia" 
-                  errors={state.errors} 
-                  className={errorStyle} 
-                />
-              </div>
-
-              {/* WhatsApp (Opcional) */}
+              {/* Whatsapp (Opcional) */}
               <div>
                 <label htmlFor="whatsapp" className="block text-sm/6 font-medium text-gray-900">
-                  WhatsApp (Opcional, para agendamento)
+                  Whatsapp <span className="text-neutral-400">(Opcional)</span>
                 </label>
                 <div className="mt-2">
                   <input
@@ -157,12 +158,12 @@ function Formulario() {
                            disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {/* 10. Muda o texto do botão durante o envio */}
-                {state.submitting ? 'Enviando...' : 'Garantir minha vaga no piloto!'}
+                {state.submitting ? 'Enviando...' : 'Garantir minha vaga na lista de espera!'}
               </button>
 
               {/* Bloco 6: Microcopy de Confiança */}
               <p className="mt-4 text-sm text-neutral-500">
-                Sem compromisso. 100% gratuito e não pedimos dados de cartão.
+                Sem compromisso, 100% gratuito.
               </p>
             </div>
 

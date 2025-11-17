@@ -16,7 +16,7 @@ function Navbar() {
               href="#inscrever" 
               className="text-lightgray bg-gradient-to-r from-lightgolden to-darkgolden py-2 px-4 rounded-md font-semibold hover:opacity-90 transition-opacity"
             >
-              Participar do Piloto Gratuito
+              Demonstrar interesse
             </a>
           </div>
         </div>
