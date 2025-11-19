@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
 
 function RootLayout() {
   return (
@@ -18,6 +19,8 @@ function RootLayout() {
           },
         }}
       />
+
+      <Analytics />
     </>
   );
 }
